@@ -1,18 +1,28 @@
-import type { NextPage } from 'next';
+import axios from 'axios';
+import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import Layout from '../components/layout';
-import Homepage from './homepage';
-
-const Home: NextPage = () => {
+import { Product } from '../types';
+import Homepage, { HighRatingProducts } from './homepage';
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await axios.get('https://dummyjson.com/products');
+  const highRatingProducts: Product[] = res.data.products;
+  return {
+    props: {
+      data: highRatingProducts,
+    },
+  };
+};
+const Home: NextPage<HighRatingProducts> = ({ data }) => {
   return (
-    <div className="bg-backgroundApp h-screen">
+    <div className="">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Layout>
-        <Homepage />
+        <Homepage data={data} />
       </Layout>
     </div>
   );

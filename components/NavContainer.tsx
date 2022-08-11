@@ -6,6 +6,7 @@ import {
   SearchIcon,
   ShoppingCartIcon,
 } from '@heroicons/react/outline';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { Fragment } from 'react';
 import { useWindowSize } from '../helpers/window-resize';
@@ -42,7 +43,14 @@ const NavContainer = () => {
           {({ open }) => (
             <>
               <div className="flex lg:mr-8">
-                <h1 className="my-auto text-lg">Logo</h1>
+                <Image
+                  className="object-contain"
+                  src={'/archlinux-ar21.svg'}
+                  height={40}
+                  width={90}
+                  alt="logo"
+                />
+
                 <Popover.Button
                   className={
                     'flex-grow justify-end flex focus:outline-none my-auto lg:hidden'
@@ -65,7 +73,7 @@ const NavContainer = () => {
               >
                 <Popover.Panel
                   className={
-                    'absolute lg:flex bg-white lg:p-0 flex-grow justify-between lg:static my-4 lg:space-y-0 space-y-2 right-2 p-2 rounded-lg'
+                    'absolute lg:flex bg-white z-10 lg:p-0 flex-grow justify-between lg:static my-4 lg:space-y-0 space-y-2 right-2 p-2 rounded-lg'
                   }
                 >
                   {Object.keys(navs).map((nav) => (
@@ -89,7 +97,7 @@ const NavContainer = () => {
                     <h3 className="my-auto">Login</h3>
                   </div>
                   <div className="w-32 border-lightBlue bg-lightBlue p-1 border-2 rounded-lg flex justify-center">
-                    <h3 className="my-auto text-white">Login</h3>
+                    <h3 className="my-auto text-white">Register</h3>
                   </div>
                 </Popover.Panel>
               </Transition>

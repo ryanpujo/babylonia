@@ -11,7 +11,8 @@ module.exports = {
         lightBlue: '#2F8EC6'
       },
       width: {
-        32: '8.25rem'
+        32: '8.25rem',
+        48: '12.5rem'
       },
     },
   },
