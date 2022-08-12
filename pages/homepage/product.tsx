@@ -8,7 +8,7 @@ type ProductCardProp = {
 };
 const ProductCard = ({ product }: ProductCardProp) => {
   return (
-    <div className="w-48 cursor-pointer group opacity-90 shadow-gray-400 shadow-xl">
+    <div className="w-32 md:w-48 cursor-pointer group mx-auto opacity-90 shadow-gray-400 shadow-xl">
       <Link href={`https://dummyjson.com/products/${product.id}`}>
         <a>
           <div className="bg-gray-400">
@@ -22,8 +22,8 @@ const ProductCard = ({ product }: ProductCardProp) => {
           </div>
           {/* detail card */}
           <div className="p-1">
-            <div className="text-center truncate mx-auto w-40">
-              <span className="text-sm">{product.title}</span>
+            <div className="md:text-center truncate mx-auto md:w-40">
+              <span className="text-xs md:text-sm">{product.title}</span>
             </div>
             {/* price */}
             <div className="flex pl-2 mb-2">
@@ -54,7 +54,9 @@ const ProductCard = ({ product }: ProductCardProp) => {
                 className="my-auto"
                 precision={0.5}
               />
-              <span className="text-sm align-top ml-2">{product.rating}</span>
+              <span className="md:text-sm text-xs align-top ml-2">
+                {product.rating}
+              </span>
             </div>
           </div>
         </a>
