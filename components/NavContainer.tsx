@@ -43,13 +43,17 @@ const NavContainer = () => {
           {({ open }) => (
             <>
               <div className="flex lg:mr-8">
-                <Image
-                  className="object-contain"
-                  src={'/archlinux-ar21.svg'}
-                  height={40}
-                  width={90}
-                  alt="logo"
-                />
+                <Link href={'/homepage'}>
+                  <a className="my-auto h-10 w-24">
+                    <Image
+                      className="object-contain cursor-pointer"
+                      src={'/archlinux-ar21.svg'}
+                      height={40}
+                      width={90}
+                      alt="logo"
+                    />
+                  </a>
+                </Link>
 
                 <Popover.Button
                   className={

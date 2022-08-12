@@ -2,8 +2,9 @@ import Image from 'next/image';
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { HomepageProps } from '.';
 
-const CarouselHomepage = () => {
+const CarouselHomepage = ({ data }: HomepageProps) => {
   const navs = [
     'Apparel',
     'Gadget',
@@ -35,18 +36,26 @@ const CarouselHomepage = () => {
           </ul>
         </div>
         <div className="lg:max-w-5xl">
-          <Carousel infiniteLoop autoPlay showThumbs={false} showStatus={false}>
-            {images.map((image) => (
-              <div key={image}>
-                <Image
-                  className="object-cover"
-                  src={image}
-                  width={1000}
-                  height={288}
-                  alt="image"
-                />
-              </div>
-            ))}
+          <Carousel
+            interval={5000}
+            infiniteLoop
+            autoPlay
+            showThumbs={false}
+            showStatus={false}
+          >
+            {data
+              .filter((value) => value.rating > 4.0)
+              .map((product) => (
+                <div key={product.id}>
+                  <Image
+                    className="object-contain"
+                    src={product.thumbnail}
+                    width={1000}
+                    height={288}
+                    alt="image"
+                  />
+                </div>
+              ))}
           </Carousel>
         </div>
       </div>
