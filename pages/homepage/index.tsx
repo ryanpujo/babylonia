@@ -7,7 +7,7 @@ import axios from 'axios';
 import { GetStaticProps } from 'next';
 import Layout from '../../components/layout';
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get('https://dummyjson.com/products');
+  const res = await axios.get('https://dummyjson.com/products?limit=100');
   const products: Product[] = res.data.products;
   return {
     props: {

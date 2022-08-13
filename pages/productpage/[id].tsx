@@ -11,7 +11,7 @@ import { productPageAction } from '../../store/product-page';
 import { Rating } from '@mui/material';
 import { ShoppingCartIcon } from '@heroicons/react/outline';
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await axios.get('https://dummyjson.com/products');
+  const res = await axios.get('https://dummyjson.com/products?limit=100');
   const paths = res.data.products.map((product: Product) => {
     return {
       params: { id: `${product.id}` },
@@ -55,10 +55,10 @@ const ProductPage = ({ data }: ProductPageProp) => {
   return (
     <Layout>
       <div className="max-w-7xl min-h-screen mx-auto mt-5">
-        <div className="min-h-screen p-2 lg:flex">
+        <div className="min-h-screen p-2">
           <div id="product-images" className="bg-white">
             <Image
-              className="object-contain w-full"
+              className="object-contain h-24 w-full"
               src={picturePath}
               width={200}
               height={100}
@@ -105,7 +105,10 @@ const ProductPage = ({ data }: ProductPageProp) => {
             >
               ${data.price}
             </h1>
-            <Rating value={data.rating} size="small" />
+            <div className="flex">
+              <Rating value={data.rating} size="small" />
+              <p className="text-sm align-text-top">{data.rating}</p>
+            </div>
           </div>
           <div className="mt-1 p-2 bg-white flex justify-between">
             <h1 className="text-xl">Category :</h1>
@@ -115,7 +118,7 @@ const ProductPage = ({ data }: ProductPageProp) => {
             <h1 className="text-xl">Description</h1>
             <p>{data.description}</p>
           </div>
-          <div className="bg-white mt-1 fixed bottom-0 right-0 left-0 w-full p-2 flex space-x-2">
+          <div className="bg-white mt-1 fixed lg:static bottom-0 right-0 left-0 w-full p-2 flex space-x-2">
             <div className="p-4 border-2 w-fit rounded-lg border-lightBlue">
               <ShoppingCartIcon className="h-5 text-lightBlue w-5" />
             </div>

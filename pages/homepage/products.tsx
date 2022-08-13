@@ -34,7 +34,7 @@ const Products = ({ data }: ProductsProp) => {
       </div>
       <Carousel autoPlay infinite className="mx-auto" responsive={responsive}>
         {data
-          .filter((value) => value.rating > 4.0)
+          .filter((value) => value.rating > 4.7)
           .map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

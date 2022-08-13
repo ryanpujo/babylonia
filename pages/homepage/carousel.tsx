@@ -44,7 +44,7 @@ const CarouselHomepage = ({ data }: HomepageProps) => {
             showStatus={false}
           >
             {data
-              .filter((value) => value.rating > 4.0)
+              .filter((value) => value.rating > 4.7)
               .map((product) => (
                 <div key={product.id}>
                   <Image
