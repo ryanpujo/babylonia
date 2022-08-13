@@ -6,7 +6,7 @@ type Props = {
 
 const Layout: FC<Props> = ({ children }) => {
   return (
-    <div className="">
+    <div className="bg-backgroundApp min-h-screen">
       <NavContainer />
       {children}
     </div>

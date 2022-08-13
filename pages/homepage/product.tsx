@@ -9,7 +9,7 @@ type ProductCardProp = {
 const ProductCard = ({ product }: ProductCardProp) => {
   return (
     <div className="w-32 md:w-48 cursor-pointer group mx-auto opacity-90 shadow-gray-400 shadow-xl">
-      <Link href={`https://dummyjson.com/products/${product.id}`}>
+      <Link href={`/productpage/${product.id}`}>
         <a>
           <div className="bg-gray-400">
             <Image

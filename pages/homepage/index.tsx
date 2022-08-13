@@ -3,17 +3,30 @@ import ProductHighlights from './product-hightlight';
 import 'react-multi-carousel/lib/styles.css';
 import { Product } from '../../types';
 import Products from './products';
-
-export type HighRatingProducts = {
+import axios from 'axios';
+import { GetStaticProps } from 'next';
+import Layout from '../../components/layout';
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await axios.get('https://dummyjson.com/products?limit=100');
+  const products: Product[] = res.data.products;
+  return {
+    props: {
+      data: products,
+    },
+  };
+};
+export type HomepageProps = {
   data: Product[];
 };
-const Homepage = ({ data }: HighRatingProducts) => {
+const Homepage = ({ data }: HomepageProps) => {
   return (
-    <div className="max-w-7xl mx-auto">
-      <CarouselHomepage />
-      <ProductHighlights />
-      <Products data={data} />
-    </div>
+    <Layout>
+      <div className="max-w-7xl mx-auto">
+        <CarouselHomepage data={data} />
+        <ProductHighlights />
+        <Products data={data} />
+      </div>
+    </Layout>
   );
 };
 

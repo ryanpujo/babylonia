@@ -6,26 +6,26 @@ import ProductCard from './product';
 type ProductsProp = {
   data: Product[];
 };
+export const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 5,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 3,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 2,
+  },
+};
 const Products = ({ data }: ProductsProp) => {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 5,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 3,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 2,
-    },
-  };
   return (
     <div className="my-4 bg-white p-4">
       <div className="flex mb-2">
@@ -34,7 +34,7 @@ const Products = ({ data }: ProductsProp) => {
       </div>
       <Carousel autoPlay infinite className="mx-auto" responsive={responsive}>
         {data
-          .filter((value) => value.rating > 4.0)
+          .filter((value) => value.rating > 4.7)
           .map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
