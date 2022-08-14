@@ -14,14 +14,6 @@ const CarouselHomepage = ({ data }: HomepageProps) => {
     'Vehicle',
     'Machinary',
   ];
-  const images = [
-    '/Abstract-PC-Wallpaper.jpg',
-    '/Abstract-Wallpaper-4K-HD-Wallpaper-Free-download.jpg',
-    '/1776254.jpg',
-    '/981877.jpg',
-    '/arch.png',
-    '/vercel.svg',
-  ];
   return (
     <div>
       <div className="mt-10 flex justify-between bg-white p-4">
