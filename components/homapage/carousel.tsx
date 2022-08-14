@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { HomepageProps } from '.';
+import { HomepageProps } from '../../pages/homepage';
 
 const CarouselHomepage = ({ data }: HomepageProps) => {
   const navs = [

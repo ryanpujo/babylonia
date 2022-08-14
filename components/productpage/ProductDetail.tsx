@@ -1,8 +1,10 @@
 import { ShoppingCartIcon } from '@heroicons/react/outline';
 import { Rating } from '@mui/material';
 import React from 'react';
-import { ProductPageProp } from './[id]';
-
+import { Product } from '../../types';
+export type ProductPageProp = {
+  data: Product;
+};
 const ProductDetail = ({ data }: ProductPageProp) => {
   return (
     <div>

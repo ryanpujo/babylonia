@@ -6,8 +6,10 @@ import { Product } from '../../types';
 import 'react-multi-carousel/lib/styles.css';
 import { useDispatch } from 'react-redux';
 import { productPageAction } from '../../store/product-page';
-import ProductImage from './ProductImage';
-import ProductDetail from './ProductDetail';
+import ProductDetail, {
+  ProductPageProp,
+} from '../../components/productpage/ProductDetail';
+import ProductImage from '../../components/productpage/ProductImage';
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await axios.get('https://dummyjson.com/products?limit=100');
   const paths = res.data.products.map((product: Product) => {
@@ -28,9 +30,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: { data: product },
   };
-};
-export type ProductPageProp = {
-  data: Product;
 };
 
 const ProductPage = ({ data }: ProductPageProp) => {

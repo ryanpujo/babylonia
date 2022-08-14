@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { productPageAction } from '../../store/product-page';
-import { ProductPageProp } from './[id]';
+import { ProductPageProp } from './ProductDetail';
 
 const ProductImage = ({ data }: ProductPageProp) => {
   const dispatch = useDispatch();

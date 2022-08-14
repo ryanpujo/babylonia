@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import ProductCard from '../../components/homapage/product';
 import Layout from '../../components/layout';
 import { RootState } from '../../store';
 import { Product } from '../../types';
-import ProductCard from '../homepage/product';
 
 const ErrorPage = () => {
   const products: Product[] = useSelector(
